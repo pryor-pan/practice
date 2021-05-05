@@ -1,37 +1,31 @@
-package com.classobj04.Classextends;
+package testexam;
+
+import java.util.*;
+
 
 /**
  * Remarks:
  * Author:panlai
- * :Date:2021/4/17
+ * :Date:2021/4/27
  */
-
-
-class Base{
-    public int a = 1;
-}
-
-class Deriev extends Base{
-    public  int a = 2;
-    public  int b = 3;
-
-
-    public int getFather(){
-        return super.a;
-    }
-}
-
 public class TestDemo {
     public static void main(String[] args) {
-        Deriev deriev = new Deriev();
-        System.out.println(deriev.a);
-        System.out.println("========================");
-        Base base = new Base();             //向上转型了
-        System.out.println(base.a);
-        System.out.println("=======================");
-        Deriev deriev1 = new Deriev();
-        System.out.println(deriev1.getFather());    //调用一个super方法去取父类的变量。
-
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        StringBuilder sb = new StringBuilder();
+        sb.append(str.charAt(0));
+        for (int i = 1; i < str.length(); i++) {
+            boolean flg = true;
+            for (int j = 0; j < sb.length(); j++) {
+                if (str.charAt(i) == sb.charAt(j)){
+                    flg = false;
+                    break;
+                }
+            }
+            if (flg){
+                sb.append(str.charAt(i));
+            }
+        }
+        System.out.println(sb.toString());
     }
-
 }
